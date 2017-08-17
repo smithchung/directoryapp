@@ -1,6 +1,6 @@
 <?php
 // database credentials
-$db_host      = 'ec2-23-21-246-11.compute-1.amazonaws.com';
+$db_host      = 'localhost';
 $db_name      = 'd9mllo92revvut';
 $db_user      = 'zapxzvnfzqodgi';
 $db_user_pass = '9706b74810d4daecc62549af4681953d645f3203aac072076dfc3e115e3f57a1';
