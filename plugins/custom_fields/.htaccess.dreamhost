@@ -1,0 +1,36 @@
+AddHandler php5-cgi .php
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+# multiviews functionality
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)(/?)(.*?)$ $1.php$2$3 [L]
+
+# 1)
+# http://www.example.com/city-name/...
+# must rewrite to
+# http://www.example.com/index/city-name
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([0-9a-z-]+)/?$ index/$1 [NC]
+
+# 2)
+# http://www.example.com/city-name/list/category-name/[n,s,c,a]-9-13-1
+# must rewrite to
+# http://www.example.com/list/city-name/category-name/[n,s,c,a]-9-13-1
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([0-9a-z-]+)/list/([a-z0-9-]+)/([nsca0-9-]+)$ list/$1/$2/$3 [NC]
+
+# 3)
+# http://www.example.com/city-name/place/01234/rosemarys-enoteca-trattoria
+# must rewrite to
+# http://www.example.com/place/01234/rosemarys-enoteca-trattoria
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([0-9a-z-]+)/place/([a-z0-9-]+)/([a-z0-9-]*)$ place/$2 [NC]

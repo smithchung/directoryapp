@@ -1,0 +1,7 @@
+Options -MultiViews
+RewriteEngine On
+
+# multiviews functionality
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)(/?)(.*?)$ $1.php?$2$3 [last]
