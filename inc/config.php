@@ -7,7 +7,7 @@ $db_user_pass = '9706b74810d4daecc62549af4681953d645f3203aac072076dfc3e115e3f57a
 
 // base url, where the script will be installed
 // *please do not include a trailing slash*
-$baseurl = 'https://vendordirectory.herokuapp.com/';
+$baseurl = 'https://vendordirectory.herokuapp.com';
 
 // include global logic
 require_once('common.inc.php');
